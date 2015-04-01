@@ -1,6 +1,5 @@
 part of ex09;
 
-
 class Board extends Surface {
   static const int carCount = 10; // including the red car
 
@@ -8,7 +7,7 @@ class Board extends Surface {
   int nbHit = 0;
   Cars cars;
   RedCar redCar;
-  Size space;
+  Area space;
   bool isUp = true;
   bool isOp = true;
   bool end;
@@ -17,9 +16,8 @@ class Board extends Surface {
   num man = 25;
   num mix = 100;
 
-
   Board(CanvasElement canvas) : super(canvas) {
-    space = new Size(width, height);
+    space = new Area(width, height);
     cars = new Cars(carCount);
     cars.forEach((Car car) {
       car.space = space;
@@ -48,12 +46,12 @@ class Board extends Surface {
     drawRect(canvas, 0, 0, width, height, color: '#D8D8D8', borderColor: 'black');
     drawSquare(canvas, 300, 470, 100, lineWidth: 1, color: '#E40000', borderColor: 'black');
     if (nbHit >= 3) {
-      drawTag(canvas, 360, 250, 40, 'GAME OVER!');
-      drawTag(canvas, 360, 300, 30, 'F5 to try again');
+      drawTag(canvas, 360, 250, 'GAME OVER!', size: 40);
+      drawTag(canvas, 360, 300, 'F5 to try again', size: 30);
       return end;
     } else if (redCar.x > 300 && redCar.x < 350 && redCar.y > 450) {
       drawStar(canvas, 350, 250, 200, spikes: 5, lineWidth: 1, color: '#f8f800', borderColor: 'black');
-      drawTag(canvas, 350, 250, 40, 'YOU WIN!!!');
+      drawTag(canvas, 350, 250, 'YOU WIN!!!', size: 40);
       pt++; // 1ere facon de l'écrire
       return end;
     }
@@ -68,7 +66,7 @@ class Board extends Surface {
           nbHit == nbHit++; // 2e facon de l'écrire
         }
       });
-      
+
       if (car.width > max) {
         car.width = max;
         isUp = false;

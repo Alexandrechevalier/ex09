@@ -26,9 +26,9 @@ class NonRedCar extends Car {
   NonRedCar(int id) : super(id) {
     dx = randomRangeNum(1, 3);
     dy = randomRangeNum(1, 3);
-    borderColor = '#3ADF00';
-    linePath.width = 3;
-    color = 'blue';
+    color.border = '#3ADF00';
+    line.width = 3;
+    color.main = 'blue';
   }
 }
 
@@ -69,7 +69,7 @@ class RedCar extends Car {
       isSmall = false;
       width = bigWidth;
       height = bigHeight;
-      color = bigColorCode;
+      color.main = bigColorCode;
 
     }
   }
@@ -79,7 +79,7 @@ class RedCar extends Car {
       isSmall = true;
       width = smallWidth;
       height = smallHeight;
-      color = smallColorCode;
+      color.main = smallColorCode;
 
     }
   }
