@@ -1,4 +1,4 @@
-﻿Ex 09
+﻿Ex-09
 Alexandre Chevalier 
 
 Cours: sio-2109 introduction à la programmation
